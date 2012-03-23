@@ -15,6 +15,7 @@ Będę korzystał z serwera *serve*:
 * [W3C SVG](http://www.w3.org/TR/SVG/)
 * [W3C SVG Primer](http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 * [SVG Tutorial](http://www.w3schools.com/svg/default.asp)
+* [Learn SVG](http://www.learnsvg.com/)
 
 
 ## D3
@@ -38,6 +39,7 @@ Talks:
   a simple viewer for code examples hosted on GitHub Gist
   - [Line Trasition](http://bl.ocks.org/1643051);
   zob. też [Path Transitions](http://bost.ocks.org/mike/path/)
+* [D3 for Mere Mortals](http://www.recursion.org/d3-for-mere-mortals/)
 
 
 ## Uwagi
