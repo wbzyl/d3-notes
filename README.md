@@ -21,7 +21,7 @@ Będę korzystał z serwera *serve*:
 
 ## Uwagi
 
-Najpier tworzymy element *svg*:
+Zaczynamy od utworzenia elementu *svg* i dodania go do strony:
 
 ```javascript
 var svg = d3.select("body").append("svg");
