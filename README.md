@@ -14,20 +14,27 @@ Będę korzystał z serwera *serve*:
 * [Google group](https://groups.google.com/group/d3-js)
 
 
-### D3
+## D3
 
+* [Data-Driven Documents](http://mbostock.github.com/d3/) – home
 * [API Reference](https://github.com/mbostock/d3/wiki/API-Reference)
 * [SVG Shapes](https://github.com/mbostock/d3/wiki/SVG-Shapes)
+* [Thinking with Joins](http://bost.ocks.org/mike/join/)
 * [Towards Reusable Charts](http://bost.ocks.org/mike/chart/)
 
-Demo:
+Talks:
 
 * [flexible transitions](http://mbostock.github.com/d3/talk/20111116/transitions.html)
 
-Różne:
+
+## Misc
 
 * [Cube](http://square.github.com/cube/) –
   system for visualizing time series data, built on MongoDB, Node and D3
+* [bl.ocks.org](http://bl.ocks.org/) –
+  a simple viewer for code examples hosted on GitHub Gist
+  - [Line Trasition](http://bl.ocks.org/1643051);
+  zob. też [Path Transitions](http://bost.ocks.org/mike/path/)
 
 
 ## Uwagi
