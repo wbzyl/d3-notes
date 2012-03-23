@@ -18,10 +18,16 @@ Będę korzystał z serwera *serve*:
 
 * [API Reference](https://github.com/mbostock/d3/wiki/API-Reference)
 * [SVG Shapes](https://github.com/mbostock/d3/wiki/SVG-Shapes)
+* [Towards Reusable Charts](http://bost.ocks.org/mike/chart/)
 
 Demo:
 
 * [flexible transitions](http://mbostock.github.com/d3/talk/20111116/transitions.html)
+
+Różne:
+
+* [Cube](http://square.github.com/cube/) –
+  system for visualizing time series data, built on MongoDB, Node and D3
 
 
 ## Uwagi
