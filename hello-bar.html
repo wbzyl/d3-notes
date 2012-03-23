@@ -1,0 +1,108 @@
+<!doctype html>
+
+<meta charset="utf-8">
+<style>
+.chart div {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ccc;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: black;
+}
+.chart rect {
+  stroke: white;
+  fill: steelblue;
+}
+</style>
+
+<body>
+
+<!-- http://mbostock.github.com/d3/tutorial/bar-1.html -->
+
+<script src="d3.v2.js"></script>
+
+<script>
+
+var chart = d3.select("body").append("div")
+     .attr("class", "chart");
+
+var data = [4, 8, 15, 16, 23, 42];
+
+// na konsoli: x(4) == "40px"
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range(["0px", "420px"]);
+
+chart.selectAll("div")
+    .data(data)
+  .enter().append("div")
+//    .style("width", function(d) { return d * 10 + "px"; })
+//    .text(function(d) { return d; });
+      .style("width", x)
+      .text(String);
+
+// 192 == 32 * data.length
+
+var chart = d3.select("body").append("svg")
+    .attr("class", "chart")
+    //.attr("width", 420)
+    //.attr("height", 32 * data.length);
+    .attr("width", 440)
+    .attr("height",  192 + 20)
+  .append("g")
+    .attr("transform", "translate(10,15)");
+
+var xx = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+var yy = d3.scale.ordinal()
+    .domain(data)
+    .rangeBands([0, 192]);
+
+chart.selectAll("line")
+    .data(x.ticks(10))
+  .enter().append("line")
+    .attr("x1", x)
+    .attr("x2", x)
+    .attr("y1", 0)
+    .attr("y2", 192)
+    .style("stroke", "#ccc");
+
+chart.selectAll("rect")
+    .data(data)
+  .enter().append("rect")
+    .attr("y", function(d, i) { return i * 32; })
+//    .attr("width", xx)
+    .attr("width", xx)
+    .attr("height", yy.rangeBand());
+
+chart.selectAll("text")
+    .data(data)
+  .enter().append("text")
+//    .attr("x", xx)
+    .attr("x", function(d) { return xx(d) -6; })  // dx = -6 nie działa?
+    .attr("y", function(d) { return yy(d) + yy.rangeBand() / 2; })
+    .attr("dy", ".35em") // vertical-align: middle
+    // .attr("dx", -6) // padding-right
+    .attr("text-anchor", "end") // text-align: right
+    .text(String);
+
+chart.selectAll(".rule")
+    .data(x.ticks(10))
+  .enter().append("text")
+    .attr("class", "rule")
+    .attr("x", xx)
+    .attr("y", 0)
+    //.attr("dy", -3)
+    .attr("text-anchor", "middle")
+    .text(String);
+
+chart.append("line")
+    .attr("y1", 0)
+    .attr("y2", 192)
+    .style("stroke", "#000");
+
+</script>
