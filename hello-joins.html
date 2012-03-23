@@ -6,7 +6,10 @@
 
 <script>
 
-var svg = d3.select("body").append("svg");
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", 600)
+    .attr("height", 400);
 
 //var d = {"x": 0.0, "y": 0.0};
 //
@@ -22,6 +25,6 @@ svg.selectAll("circle")
   .enter().append("circle")
     .attr("cx", function(d) { return d.x; })
     .attr("cy", function(d) { return d.y; })
-    .attr("r", 144);
+    .attr("r", 100);
 
 </script>
