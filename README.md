@@ -9,9 +9,9 @@ Będę korzystał z serwera *serve*:
 
 ## Resources
 
-* [stackoverflow]http://stackoverflow.com/questions/tagged/d3.js
-* [wiki](https://github.com/mbostock/d3/wiki)
-* [google group](https://groups.google.com/group/d3-js)
+* [Stackoverflow](http://stackoverflow.com/questions/tagged/d3.js)
+* [Wiki](https://github.com/mbostock/d3/wiki)
+* [Google group](https://groups.google.com/group/d3-js)
 
 
 ## Uwagi
