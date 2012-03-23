@@ -14,6 +14,11 @@ Będę korzystał z serwera *serve*:
 * [Google group](https://groups.google.com/group/d3-js)
 
 
+### D3
+
+* [SVG Shapes](https://github.com/mbostock/d3/wiki/SVG-Shapes)
+
+
 ## Uwagi
 
 Najpier tworzymy element *svg*:
