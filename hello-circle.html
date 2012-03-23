@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>/* CSS */</style>
+<body>
+<script src="d3.v2.js"></script>
+
+<script>
+var svg = d3.select("body").append("svg");
+
+var data = [ {"x": 0, "y": 0} ];  // zawsze tablica
+
+svg.selectAll("circle")
+    .data(data)
+  .enter().append("circle")
+    .attr("cx", data.x)
+    .attr("cy", data.y)
+    .attr("r", 100);
+</script>
