@@ -4,7 +4,7 @@ Będę korzystał z serwera *serve*:
 
     npm install -g serve
     cd d3-notes
-    serve .~/temp/d3-notes
+    serve .
 
 
 ## Resources
