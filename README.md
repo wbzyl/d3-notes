@@ -18,6 +18,10 @@ Będę korzystał z serwera *serve*:
 
 * [SVG Shapes](https://github.com/mbostock/d3/wiki/SVG-Shapes)
 
+Demo:
+
+* [flexible transitions](http://mbostock.github.com/d3/talk/20111116/transitions.html)
+
 
 ## Uwagi
 
