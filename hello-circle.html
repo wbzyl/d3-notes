@@ -12,12 +12,13 @@ var svg = d3.select("body")
     .attr("width", 600)
     .attr("height", 400);
 
-var data = [{"x": 100, "y": 200.0}];
+var data = [{"x": 100, "y": 200}];
 
 svg.selectAll("circle")
     .data(data)
   .enter().append("circle")
     .attr("cx", function(d) { return d.x; })
     .attr("cy", function(d) { return d.y; })
-    .attr("r", 200);
+    .attr("r", 200)
+    .style("fill", "#F80");
 </script>
