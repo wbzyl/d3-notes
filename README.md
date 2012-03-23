@@ -16,6 +16,7 @@ Będę korzystał z serwera *serve*:
 * [W3C SVG Primer](http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 * [SVG Tutorial](http://www.w3schools.com/svg/default.asp)
 * [Learn SVG](http://www.learnsvg.com/)
+  - [Basics](http://www.learnsvg.com/tutorials/tutorialBasics/)
 
 
 ## D3
