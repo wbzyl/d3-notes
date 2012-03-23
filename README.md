@@ -12,6 +12,9 @@ Będę korzystał z serwera *serve*:
 * [Stackoverflow](http://stackoverflow.com/questions/tagged/d3.js)
 * [Wiki](https://github.com/mbostock/d3/wiki)
 * [Google group](https://groups.google.com/group/d3-js)
+* [W3C SVG](http://www.w3.org/TR/SVG/)
+* [W3C SVG Primer](http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
+* [SVG Tutorial](http://www.w3schools.com/svg/default.asp)
 
 
 ## D3
