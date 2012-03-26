@@ -24,15 +24,18 @@ Będę korzystał z serwera *serve* (NodeJS, NPM):
 
 ## D3
 
-* [Data-Driven Documents](http://mbostock.github.com/d3/) – home
-* [API Reference](https://github.com/mbostock/d3/wiki/API-Reference)
-* [SVG Shapes](https://github.com/mbostock/d3/wiki/SVG-Shapes)
+* D3 Home – [Data-Driven Documents](http://mbostock.github.com/d3/)
+* [D3 API Reference](https://github.com/mbostock/d3/wiki/API-Reference)
+* [D3 SVG Shapes](https://github.com/mbostock/d3/wiki/SVG-Shapes)
+
+Blog:
+
 * [Thinking with Joins](http://bost.ocks.org/mike/join/)
 * [Towards Reusable Charts](http://bost.ocks.org/mike/chart/)
 
 Talks:
 
-* [flexible transitions](http://mbostock.github.com/d3/talk/20111116/transitions.html)
+* [Flexible transitions](http://mbostock.github.com/d3/talk/20111116/transitions.html)
 
 
 ## Misc
