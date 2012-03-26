@@ -46,7 +46,8 @@ Talks:
   a simple viewer for code examples hosted on GitHub Gist
   - [Line Trasition](http://bl.ocks.org/1643051);
   zob. też [Path Transitions](http://bost.ocks.org/mike/path/)
-* [D3 for Mere Mortals](http://www.recursion.org/d3-for-mere-mortals/)
+* Luke Francl,
+  [D3 for Mere Mortals](http://www.recursion.org/d3-for-mere-mortals/)
 
 
 ## Uwagi
