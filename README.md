@@ -1,6 +1,9 @@
 # Notatki do slajdów z „D3 Workshop”
 
-Będę korzystał z serwera *serve*:
+Link do slajdów: 
+[Mike Bostock](http://bost.ocks.org/mike/), „[D3 Workshop](http://bost.ocks.org/mike/d3/workshop/)”.
+
+Będę korzystał z serwera *serve* (NodeJS, NPM):
 
     npm install -g serve
     cd d3-notes
