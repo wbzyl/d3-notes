@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-body { background: #ccc; }
+body {
+  background: #ccc;
+}
+rect {
+  stroke: #222;
+  stroke-width: 2;
+}
 </style>
 <body>
 <script src="d3.v2.js"></script>
@@ -31,8 +37,6 @@ svg.selectAll("rect")
     .attr("y", function(d) { return d.y; })
     .attr("height", function(d) { return d.height; })
     .attr("width", function(d) { return d.width; })
-    .style("stroke", "black")
-    .style("stroke-width", 2)
     .style("fill", function(d) { return d.fill; })
 
 </script>
