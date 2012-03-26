@@ -2,7 +2,7 @@
 
 <meta charset="utf-8">
 <style>
-.chart div {
+div.chart div {
   font-size: 16px;
   font-weight: bold;
   background-color: #ccc;
@@ -11,7 +11,10 @@
   margin: 1px;
   color: black;
 }
-.chart rect {
+svg {
+  margin-top: 20px;
+}
+svg.chart rect {
   stroke: white;
   fill: steelblue;
 }
@@ -24,6 +27,8 @@
 <script src="d3.v2.js"></script>
 
 <script>
+
+// DIV bar
 
 var chart = d3.select("body").append("div")
      .attr("class", "chart");
@@ -43,6 +48,8 @@ chart.selectAll("div")
       .style("width", x)
       .text(String);
 
+// SVG bar
+
 // 192 == 32 * data.length
 
 var chart = d3.select("body").append("svg")
@@ -58,18 +65,26 @@ var xx = d3.scale.linear()
     .domain([0, d3.max(data)])
     .range([0, 420]);
 
+//  0  4  8  15  16  23   42
+//  ↓  ↓  ↓   ↓   ↓   ↓    ↓
+//  0 40 80 150 160 230  420
+
 var yy = d3.scale.ordinal()
     .domain(data)
     .rangeBands([0, 192]);
 
+//  4   8  15  16  23   42
+//  ↓   ↓   ↓   ↓   ↓    ↓   ↓
+//  0  32  64  96  128 160 192
+
 chart.selectAll("line")
-    .data(x.ticks(10))
+    .data(xx.ticks(10))
   .enter().append("line")
-    .attr("x1", x)
-    .attr("x2", x)
+    .attr("x1", xx)
     .attr("y1", 0)
+    .attr("x2", xx)
     .attr("y2", 192)
-    .style("stroke", "#ccc");
+    .style("stroke", "#ddd");
 
 chart.selectAll("rect")
     .data(data)
@@ -91,18 +106,20 @@ chart.selectAll("text")
     .text(String);
 
 chart.selectAll(".rule")
-    .data(x.ticks(10))
+    .data(x.ticks(4))
   .enter().append("text")
     .attr("class", "rule")
     .attr("x", xx)
     .attr("y", 0)
-    //.attr("dy", -3)
+    .attr("dy", -3)
     .attr("text-anchor", "middle")
     .text(String);
 
 chart.append("line")
-    .attr("y1", 0)
-    .attr("y2", 192)
+    .attr("x1", 0)
+    .attr("x2", 0)
+    .attr("y1", 1)
+    .attr("y2", 191)
     .style("stroke", "#000");
 
 </script>
