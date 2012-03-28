@@ -9,6 +9,10 @@ Będę korzystał z serwera *serve* (NodeJS, NPM):
     cd d3-notes
     serve .
 
+Użyteczne:
+
+* Gabriel Florit, [Live coding in D3](http://gabrielflor.it/blog-water)
+
 
 ## Resources
 
