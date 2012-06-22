@@ -1,6 +1,6 @@
 # Notatki do slajdów z „D3 Workshop”
 
-Link do slajdów: 
+Link do slajdów:
 [Mike Bostock](http://bost.ocks.org/mike/), „[D3 Workshop](http://bost.ocks.org/mike/d3/workshop/)”.
 
 Będę korzystał z serwera *serve* (NodeJS, NPM):
@@ -16,6 +16,7 @@ Będę korzystał z serwera *serve* (NodeJS, NPM):
 * [Wiki](https://github.com/mbostock/d3/wiki)
 * [Google group](https://groups.google.com/group/d3-js)
 * [W3C SVG](http://www.w3.org/TR/SVG/)
+* [Mozilla Developer Network SVG](https://developer.mozilla.org/en/SVG)
 * [W3C SVG Primer](http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 * [SVG Tutorial](http://www.w3schools.com/svg/default.asp)
 * [Learn SVG](http://www.learnsvg.com/)
@@ -56,10 +57,14 @@ Zaczynamy od utworzenia elementu *svg* i dodania go do strony:
 
 ```javascript
 var svg = d3.select("body").append("svg");
+```
+Jeśli będziemy potrzebować jakiś danych to definiujemy je teraz:
+
+```javascript
 var data = [ {"x": 0, "y": 0} ];  // zawsze tablica
 ```
 
-Następnie dodajemy różne rzeczy:
+Po tych przygotowaniach zaczynamy dodawać różne elementy do strony:
 
 ```javascript
 svg.selectAll("circle")
