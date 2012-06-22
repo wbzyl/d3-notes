@@ -62,7 +62,10 @@ Talks:
 Zaczynamy od utworzenia elementu *svg* i dodania go do strony:
 
 ```javascript
-var svg = d3.select("body").append("svg");
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", 600)
+    .attr("height", 400);
 ```
 Jeśli będziemy potrzebować jakiś danych to definiujemy je teraz:
 
