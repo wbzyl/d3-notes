@@ -1,7 +1,7 @@
 # Notatki do slajdów z „D3 Workshop”
 
-Link do slajdów:
-[Mike Bostock](http://bost.ocks.org/mike/), „[D3 Workshop](http://bost.ocks.org/mike/d3/workshop/)”.
+* [Mike Bostock](http://bost.ocks.org/mike/), „[D3 Workshop](http://bost.ocks.org/mike/d3/workshop/)” (slajdy)
+* [D3 Show Reel](http://bl.ocks.org/1256572)
 
 Będę korzystał z serwera *serve* (NodeJS, NPM):
 
