@@ -9,6 +9,10 @@ Będę korzystał z serwera *serve* (NodeJS, NPM):
     cd d3-notes
     serve .
 
+Użyteczne:
+
+* Gabriel Florit, [Live coding in D3](http://gabrielflor.it/blog-water)
+
 
 ## Resources
 
@@ -49,6 +53,8 @@ Talks:
   zob. też [Path Transitions](http://bost.ocks.org/mike/path/)
 * Luke Francl,
   [D3 for Mere Mortals](http://www.recursion.org/d3-for-mere-mortals/)
+* Jerome Cukier,
+  [D3 scales & color](http://www.jeromecukier.net/blog/2011/08/11/d3-scales-and-color/)
 
 
 ## Uwagi
