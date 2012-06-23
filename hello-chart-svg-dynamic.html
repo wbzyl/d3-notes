@@ -26,73 +26,61 @@ line {
 <body>
 
 <script>
-var data = [4, 8, 15, 16, 23, 42];
+var t = 1297110663, // start time (seconds since epoch)
+    v = 70,         // start value (subscribers)
+    data = d3.range(33).map(next); // starting dataset
 
-var  width = 840;
-var height = data.length * 30;
+function next() {
+  return {
+    time: ++t,
+    value: v = ~~Math.max(10, Math.min(90, v + 10 * (Math.random() - .5)))
+  };
+};
 
-console.log("width = ", width, " height = ", height);
+setInterval(function() {
+  data.shift();
+  data.push(next());
+  redraw();
+}, 500);
+
+var w = 20,
+    h = 80;
 
 var x = d3.scale.linear()
-    .domain([0, d3.max(data)])
-    .range([0, width]);
+    .domain([0, 1])
+    .range([0, w]);
 
-console.log("x(0)  = ", x(0));  //   0 px
-console.log("x(4)  = ", x(4));  //  80 px
-console.log("x(8)  = ", x(8));  // 160 px
-console.log("x(42) = ", x(42)); // 840 px
-
-var y = d3.scale.ordinal()
-    .domain(data)
-    .rangeBands([0, height]);
-
-console.log("y.rangeBand = ", y.rangeBand());
+var y = d3.scale.linear()
+    .domain([0, 100])
+    .rangeRound([0, h]);
 
 var chart = d3.select("body").append("svg")
-      .attr("class", "chart")
-      .attr("width", width + 40)
-      .attr("height", height + 45)
-    .append("g")
-      .attr("transform", "translate(20,30)");
-
-// horizontal bars
+    .attr("class", "chart")
+    .attr("width", w * data.length - 1)
+    .attr("height", h);
 
 chart.selectAll("rect")
     .data(data)
   .enter().append("rect")
-    .attr("y", y)
-    .attr("width", x)
-    .attr("height", y.rangeBand());
+    .attr("x", function(d, i) { return x(i) - .5; })
+    .attr("y", function(d) { return h - y(d.value) - .5; })
+    .attr("width", w)
+    .attr("height", function(d) { return y(d.value); });
 
-// numbers
+chart.append("line")
+    .attr("x1", 0)
+    .attr("x2", w * data.length)
+    .attr("y1", h - .5)
+    .attr("y2", h - .5)
+    .style("stroke", "#000");
 
-chart.selectAll("text")
-    .data(data)
-  .enter().append("text")
-    //.attr("x", x)
-    .attr("x", function(d) { return x(d) - 20; })
-    //.attr("dx", -10)  // padding: nie działa
-    .attr("y", function(d) { return y(d) + y.rangeBand() / 2; })
-    .attr("dy", ".4em") // vertical-align: middle
-    .text(String);
-
-// vertical rules
-
-chart.selectAll("line")
-    .data(x.ticks(10))
-  .enter().append("line")
-    .attr("x1", x)
-    .attr("x2", x)
-    .attr("y1", 0)
-    .attr("y2", height);
-
-// numbers over vertical rules
-
-chart.selectAll(".rule")
-    .data(x.ticks(10))
-  .enter().append("text")
-    .attr("class", "rule")
-    .attr("x", x)
-    .attr("dy", -10)
-    .text(String);
+function redraw() {
+  // update…
+  chart.selectAll("rect")
+      .data(data)
+    .transition()
+      .duration(250)
+      .attr("y", function(d) { return h - y(d.value) - .5; })
+      .attr("height", function(d) { return y(d.value); });
+}
 </script>
