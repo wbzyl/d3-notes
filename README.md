@@ -96,3 +96,16 @@ that, see projects such as Google Refine and Stanford’s Data Wrangler:
   tool for working with messy data, cleaning it up, transforming it
   from one format into another, extending it with web services, and
   linking it to databases like [Freebase](http://www.freebase.com/)
+
+
+## An example
+
+Converting from decimal to binary + left padding with zeroes:
+
+```javascript
+y = (new Array(6 - Number(5).toString(2).length)).join('0') + Number(5).toString(2)
+
+var fillZeroes = "000000"
+input = Number(5).toString(2)
+fillZeroes.slice(0, input.length) + input
+```
