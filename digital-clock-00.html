@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <title>d3 experiment</title>
+
+    <!-- d3.js experiments in the console -->
+    <!-- http://www.ultrasaurus.com/sarahblog/2012/03/d3-js-experiments-in-the-console/ -->
+    <!-- http://www.tutorialspoint.com/html5/html5_color_names.htm -->
+
+    <script type="text/javascript"
+            src="https://raw.github.com/mbostock/d3/master/d3.v2.min.js">
+    </script>
+    <style type="text/css">
+    body {
+      font: bold 80px/1.28 'DejaVu Sans Mono', monospace;
+      text-align: center;
+    }
+    span {
+      display: inline-block;
+      background-color: tomato;
+      color: indigo;
+      width: 100px;
+      height: 100px;
+      margin: 4px;
+    }
+    </style>
+  </head>
+  <body>
+
+    <div id="binary-clock"></div>
+
+  <script>
+  var sec = (new Date()).getSeconds();
+  var bsec = (new Array(7 - Number(sec).toString(2).length)).join('0') + Number(sec).toString(2);
+
+  console.log(sec + " -> " + bsec);
+
+  d3.select("#binary-clock")
+      .selectAll("span")
+      .data([0, 1, 2, 3, 4, 5])
+    .enter().append("span").text(function(d, i) { return bsec[d]; });
+
+  setInterval(function() {
+    var ct = (new Date()).getSeconds();
+    var csec = (new Array(7 - Number(ct).toString(2).length)).join('0') + Number(ct).toString(2);
+    // console.log(ct + " -> " + csec);
+
+    d3.selectAll("span")
+      .filter(function(d, i) {
+        // console.log(d + "->" + (this.textContent^csec[d]));
+        return this.textContent^csec[d] ;
+      })
+      .transition()
+        .text(function(d) { return csec[d]; })
+        .duration(200)
+        .style("color", "gold")
+      .transition()
+        .delay(400)
+        .duration(200)
+        .style("color", "indigo");
+  }, 1000);
+
+  </script>
+
+  </body>
+</html>
