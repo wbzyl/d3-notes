@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <title>d3 experiment</title>
+
+    <!-- d3.js experiments in the console -->
+    <!-- http://www.ultrasaurus.com/sarahblog/2012/03/d3-js-experiments-in-the-console/ -->
+    <!-- http://www.tutorialspoint.com/html5/html5_color_names.htm -->
+
+    <script type="text/javascript"
+            src="https://raw.github.com/mbostock/d3/master/d3.v2.min.js">
+    </script>
+    <style type="text/css">
+    body {
+      font: bold 80px/1.28 'DejaVu Sans Mono', monospace;
+      margin-top: 50px;
+    }
+    #binary-clock {
+      width: 600px; height: 100px;
+      margin: 0 auto;
+    }
+    hr { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <hr>
+    <div id="binary-clock"></div>
+    <hr>
+  <script>
+  var svg = d3.select("#binary-clock")
+    .append("svg")
+      .attr("id", "binary-clock")
+      .attr( "width",  6*100)
+      .attr("height",    100);
+
+  var sec = (new Date()).getSeconds();
+  var bsec = (new Array(7 - Number(sec).toString(2).length)).join('0') + Number(sec).toString(2);
+  // console.log(sec + " -> " + bsec);
+
+  d3.select("#binary-clock svg").selectAll("circle")
+      .data(d3.range(6))
+    .enter().append("circle")
+       .attr("r", 40)
+       .attr("cy", 50)
+       .attr("cx", function(d) { return 50 + 100 * d; })
+       .attr("fill", "green")
+    .transition().duration(1000)
+       .attr("fill", "lightgray");
+
+  setInterval(function() {
+    var ct = (new Date()).getSeconds();
+    var csec = (new Array(7 - Number(ct).toString(2).length)).join('0') + Number(ct).toString(2);
+    //console.log(ct + " -> " + csec);
+
+    d3.selectAll("circle")
+      .transition().duration(800)
+        .attr("fill", function(d, i) {
+          // console.log("d: " + d + " i: " + i + " csec[i]: " + csec[i]);
+          return csec[i] === "1" ? "green" : "lightgray";
+        });
+  }, 1000);
+
+  //svg.on("mousemove", function() {
+  //  console.log(d3.svg.mouse(this));
+  //});
+
+  </script>
+
+  </body>
+</html>
