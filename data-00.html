@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <title>d3 experiment</title>
+
+    <!-- d3.js experiments in the console -->
+    <!-- http://www.ultrasaurus.com/sarahblog/2012/03/d3-js-experiments-in-the-console/ -->
+    <!-- http://www.tutorialspoint.com/html5/html5_color_names.htm -->
+
+    <script type="text/javascript"
+            src="https://raw.github.com/mbostock/d3/master/d3.v2.min.js">
+    </script>
+    <style type="text/css">
+    body {
+      font: bold 80px/1.28 'DejaVu Sans Mono', monospace;
+      text-align: center;
+    }
+    span {
+      display: inline-block;
+      background-color: tomato;
+      color: indigo;
+      width: 100px;
+      height: 100px;
+      margin: 4px;
+    }
+    </style>
+  </head>
+  <body>
+
+    <div id="binary-clock"></div>
+
+  <script>
+  var sec = (new Date()).getSeconds();
+  var bsec = (new Array(7 - Number(sec).toString(2).length)).join('0') + Number(sec).toString(2);
+
+  d3.select("#binary-clock").attr("data-time", [1,1,1,0,0,0]);
+  d3.select("#binary-clock").datum(function() {
+    console.log("type:", Object.prototype.toString.call(this.dataset.time))
+    console.log("data-time:", this.dataset.time);
+  });
+
+  var rsec = bsec.split("").reverse();
+
+  console.log(sec + " -> " + bsec);
+
+  //var changed = (bsec ^ "000000");
+  //console.log("changed:", changed);
+
+  d3.select("#binary-clock")
+      .selectAll("span")
+      .data([5, 4, 3, 2, 1, 0])
+    .enter().append("span").text(function(d, i) { return rsec[d]; });
+
+  // calculate update selection, [2, 3, 5]
+
+
+  // Update…
+  d3.select("#binary-clock").selectAll("span")
+      .data([2, 3, 5], function(d) { return d; })
+    .text(function(d, i) { console.log("d:", d); return rsec[d]; });
+
+
+  //var span = d3.select("body").selectAll("span")
+  //    .data([1, 2, 3, 4, 5, 6], function(d, i) {
+  //      console.log("type:", Object.prototype.toString.call(this))`w;
+  //      console.log("data:", d, i, this); return d;
+  //    });
+  </script>
+
+  </body>
+</html>
