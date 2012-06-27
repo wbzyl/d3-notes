@@ -52,7 +52,7 @@ d3.selectAll("p")
 d3.select("body")
     .style("background-color", "white")
   .transition()
-    .ease("linear")
+    .ease("exp-in-out")
     .duration(4000)
     .style("background-color", "#444");
 
