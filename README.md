@@ -118,3 +118,4 @@ fillZeroes.slice(0, input.length) + input
 * [How To Avoid Equidistant HSV Colors](http://vis4.net/blog/posts/avoid-equidistant-hsv-colors/)
 * [Predefined Colors](https://github.com/gka/chroma.js/wiki/Predefined-Colors) –
   [chroma.js](https://github.com/gka/chroma.js)
+* [Doing the Line Charts Right](http://vis4.net/blog/posts/doing-the-line-charts-right/)
