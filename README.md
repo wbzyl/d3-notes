@@ -116,3 +116,5 @@ fillZeroes.slice(0, input.length) + input
 * [Lab and LCh color spaces](http://bl.ocks.org/3014589)
 * [Horizon Chart](http://bl.ocks.org/1483226)
 * [How To Avoid Equidistant HSV Colors](http://vis4.net/blog/posts/avoid-equidistant-hsv-colors/)
+* [Predefined Colors](https://github.com/gka/chroma.js/wiki/Predefined-Colors) –
+  [chroma.js](https://github.com/gka/chroma.js)
