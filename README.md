@@ -109,3 +109,9 @@ var fillZeroes = "000000"
 input = Number(5).toString(2)
 fillZeroes.slice(0, input.length) + input
 ```
+
+## TL;TR
+
+* [clicking a node in d3 from a button outside the svg](http://stackoverflow.com/questions/11206015/clicking-a-node-in-d3-from-a-button-outside-the-svg/11211391#11211391)
+* [Lab and LCh color spaces](http://bl.ocks.org/3014589)
+* [Horizon Chart](http://bl.ocks.org/1483226)
