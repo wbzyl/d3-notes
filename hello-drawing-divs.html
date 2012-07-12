@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<style>
+body {
+  margin: 100px;
+}
+div.bar {
+  display: inline-block;
+  margin-right: 2px;
+  width: 20px;
+  height: 75px;
+  background-color: teal;
+}
+</style>
+
+<script src="d3.v2.min.js"></script>
+
+<body>
+
+<script>
+var dataset = [ 20, 40, 60, 80, 100 ];
+
+d3.select("body").selectAll("div")
+    .data(dataset)
+  .enter()
+    .append("div")
+    .classed("bar", true)
+    .style("height", function(d) {
+      return d + "px";
+    });
+</script>
