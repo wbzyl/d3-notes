@@ -1,7 +1,7 @@
 # Notatki do slajdów z „D3 Workshop”
 
-Link do slajdów: 
-[Mike Bostock](http://bost.ocks.org/mike/), „[D3 Workshop](http://bost.ocks.org/mike/d3/workshop/)”.
+* [Mike Bostock](http://bost.ocks.org/mike/), „[D3 Workshop](http://bost.ocks.org/mike/d3/workshop/)” (slajdy)
+* [D3 Show Reel](http://bl.ocks.org/1256572)
 
 Będę korzystał z serwera *serve* (NodeJS, NPM):
 
@@ -20,6 +20,7 @@ Użyteczne:
 * [Wiki](https://github.com/mbostock/d3/wiki)
 * [Google group](https://groups.google.com/group/d3-js)
 * [W3C SVG](http://www.w3.org/TR/SVG/)
+* [Mozilla Developer Network SVG](https://developer.mozilla.org/en/SVG)
 * [W3C SVG Primer](http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 * [SVG Tutorial](http://www.w3schools.com/svg/default.asp)
 * [Learn SVG](http://www.learnsvg.com/)
@@ -61,11 +62,18 @@ Talks:
 Zaczynamy od utworzenia elementu *svg* i dodania go do strony:
 
 ```javascript
-var svg = d3.select("body").append("svg");
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", 600)
+    .attr("height", 400);
+```
+Jeśli będziemy potrzebować jakiś danych to definiujemy je teraz:
+
+```javascript
 var data = [ {"x": 0, "y": 0} ];  // zawsze tablica
 ```
 
-Następnie dodajemy różne rzeczy:
+Po tych przygotowaniach zaczynamy dodawać różne elementy do strony:
 
 ```javascript
 svg.selectAll("circle")
@@ -88,3 +96,26 @@ that, see projects such as Google Refine and Stanford’s Data Wrangler:
   tool for working with messy data, cleaning it up, transforming it
   from one format into another, extending it with web services, and
   linking it to databases like [Freebase](http://www.freebase.com/)
+
+
+## An example
+
+Converting from decimal to binary + left padding with zeroes:
+
+```javascript
+y = (new Array(6 - Number(5).toString(2).length)).join('0') + Number(5).toString(2)
+
+var fillZeroes = "000000"
+input = Number(5).toString(2)
+fillZeroes.slice(0, input.length) + input
+```
+
+## TL;TR
+
+* [clicking a node in d3 from a button outside the svg](http://stackoverflow.com/questions/11206015/clicking-a-node-in-d3-from-a-button-outside-the-svg/11211391#11211391)
+* [Lab and LCh color spaces](http://bl.ocks.org/3014589)
+* [Horizon Chart](http://bl.ocks.org/1483226)
+* [How To Avoid Equidistant HSV Colors](http://vis4.net/blog/posts/avoid-equidistant-hsv-colors/)
+* [Predefined Colors](https://github.com/gka/chroma.js/wiki/Predefined-Colors) –
+  [chroma.js](https://github.com/gka/chroma.js)
+* [Doing the Line Charts Right](http://vis4.net/blog/posts/doing-the-line-charts-right/)

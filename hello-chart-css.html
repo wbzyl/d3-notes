@@ -1,0 +1,57 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+.chart div {
+  font: 16px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 6px;
+  margin: 2px;
+  color: white;
+}
+</style>
+<script src="d3.v2.min.js"></script>
+<body>
+
+<script>
+var data = [4, 8, 15, 16, 23, 42];
+
+var chart = d3.select("body").append("div")
+    .attr("class", "chart");
+
+//chart.selectAll("div")
+//    .data(data)
+//  .enter().append("div")
+//    .style("width", function(d) { return d * 10 + "px"; })
+//    .text(function(d) { return d; });
+
+//var x = d3.scale.linear()
+//    .domain([0, d3.max(data)])
+//    .range(["0px", "840px"]);
+
+//console.log(" x(0) = ", x(0));  //   0 px
+//console.log(" x(4) = ", x(4));  //  80 px
+//console.log(" x(8) = ", x(8));  // 160 px
+//console.log("x(42) = ", x(42)); // 840 px
+
+// percentages
+
+var width = chart.style("width");
+console.log("width = ", width);
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, width]);
+
+console.log(" x(0) = ", x(0));
+console.log(" x(4) = ", x(4));
+console.log(" x(8) = ", x(8));
+console.log("x(42) = ", x(42));
+
+chart.selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", x)
+    .text(String);
+
+</script>

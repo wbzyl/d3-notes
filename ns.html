@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Simple SVG example</title>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+function a(element,eldict) {
+   el = $(document.createElementNS('http://www.w3.org/2000/svg', element));
+   el.attr(eldict).appendTo('#mySVG');
+}
+
+$(function(){
+   a('circle', {cx: 80, cy:80, r:44, stroke:'#0000ff', fill:'none'});
+   a('circle', {cx: 180, cy:110, r:10});
+});
+</script>
+</head>
+
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="mySVG">
+  <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="aquamarine"/>
+</svg>
+
+</body>
+</html>

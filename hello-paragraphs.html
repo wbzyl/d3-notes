@@ -39,5 +39,22 @@ ultricies cursus scelerisque. Fusce pharetra auctor interdum. Nam id
 sem vel nunc elementum congue a sed leo.
 
 <script>
-d3.selectAll("p").style("color", "#D00");
+d3.selectAll("p").style("color", "indigo");
+
+d3.selectAll("p").style("color", function() {
+  return "hsl(" + Math.random() * 360 + ",100%,50%)";
+});
+
+d3.selectAll("p")
+    .data([12, 16, 20, 24])
+    .style("font-size", function(d) { return d + "px"; });
+
+d3.select("body")
+    .style("background-color", "white")
+  .transition()
+    .ease("exp-in-out")
+    .duration(4000)
+    .style("background-color", "#444");
+
+//window.addEventListener("keypress", transform, false);
 </script>

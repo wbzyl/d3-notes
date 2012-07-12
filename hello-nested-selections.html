@@ -1,0 +1,57 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+table {
+  width: 400px;
+}
+</style>
+<script src="d3.v2.min.js"></script>
+<body>
+
+<table>
+  <thead>
+    <tr><td>  A</td><td>  B</td><td>  C</td><td>  D</td></tr>
+  </thead>
+  <tbody>
+    <tr><td>  0</td><td>  1</td><td>  2</td><td>  3</td></tr>
+    <tr><td>  4</td><td>  5</td><td>  6</td><td>  7</td></tr>
+    <tr><td>  8</td><td>  9</td><td> 10</td><td> 11</td></tr>
+    <tr><td> 12</td><td> 13</td><td> 14</td><td> 15</td></tr>
+  </tbody>
+</table>
+
+
+<script>
+// flat selection
+var td = d3.selectAll("tbody td");
+
+// nested selection
+
+var td = d3.selectAll("tbody tr").selectAll("td");
+
+td.style("color", function(d, i, j) {
+  // console.log("i = ", i, " j = ", j);
+  console.log("j = ", j, " i = ", i);
+  return i == 2 ? "red" : null; }
+);
+
+//td.style("color", function(d, i, j) {
+//  return j === 1 ? "blue" : null; }
+//);
+
+var matrix = [
+  [ 0,  1,  2,  3],
+  [ 4,  5,  6,  7],
+  [ 8,  9, 10, 11],
+  [12, 13, 14, 15],
+];
+
+var td = d3.selectAll("tbody tr")
+    .data(matrix)
+  .selectAll("td")
+    .data(function(d, i) {
+      console.log(d);
+      return d;
+     }); // d is matrix[i]
+
+</script>
