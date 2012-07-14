@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="d3.v2.min.js"></script>
+
+<script>
+function draw(data) {
+  "use strict";
+
+  d3.select("body").append("ul")
+    .selectAll("li")
+      .data(data)
+    .enter()
+      .append("li")
+      .style("font-weight", function(d) {
+        if (d.status === "GOOD SERVICE"){
+          return "normal";
+        } else {
+          return "bold";
+        }
+      })
+      .text(function(d) {
+        return d.name + ": " + d.status;
+      });
+
+}
+</script>
+
+  </head>
+  <body>
+
+<script>
+// {
+//  "status": ["GOOD SERVICE"],
+//  "name": ["123"],
+//  "url": [null],
+//  "text": ["..."],
+//  "plannedworkheadline": [null],
+//  "Time": [" 7:35AM"],
+//  "Date": ["12/15/2011"]
+//}
+
+d3.json("data/service_status.json", draw);
+</script>
+
+  </body>
+</html>
