@@ -1,9 +1,11 @@
+/*global d3:true */
+
 function draw(data) {
   "use strict";
 
   var margin = 40,
-      width = 700 - margin,
-      height = 300 - margin;
+  width = 700 - margin,
+  height = 300 - margin;
 
   d3.select("body")
     .append("svg")
@@ -39,9 +41,9 @@ function draw(data) {
     .range([margin, width]);
 
   d3.selectAll("circle")
-      .attr("cx", function(d) { return time_scale(d.time); })
-      .attr("cy", function(d) { return count_scale(d.count); })
-      .attr("r", 3);
+    .attr("cx", function(d) { return time_scale(d.time); })
+    .attr("cy", function(d) { return count_scale(d.count); })
+    .attr("r", 3);
 
   // adding axes
 
@@ -89,7 +91,7 @@ function draw(data) {
   d3.select(".x.axis")
     .append("text")
       .text("time")
-    .attr("x", function() { return (width / 1.6) -  margin; })
+      .attr("x", function() { return (width / 1.6) -  margin; })
       .attr("y", margin / 1.2);
 
 }
