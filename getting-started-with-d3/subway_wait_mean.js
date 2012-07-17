@@ -22,7 +22,7 @@ function draw(data) {
 
   var time_scale = d3.time.scale()
     .range([0, chart_dimensions.width])
-    .domain([new Date(2009, 0, 1), new Date(2011, 3, 1)]);
+    .domain([new Date(2008, 11, 1), new Date(2011, 6, 1)]);
 
   var percent_scale = d3.scale.linear()
     .range([chart_dimensions.height, 0])
@@ -105,8 +105,73 @@ function draw(data) {
         .attr("class", "timeseries " + id);
     g.append("path")
       .attr("d", line(data));
+
+    var entry_duration = 500;
+
+    g.selectAll("circle")
+        .data(data)
+      .enter().append("circle")
+        .attr("cx", function(d) { return time_scale(d.time); })
+        .attr("cy", function(d) { return percent_scale(d.late_percent); })
+      .transition().delay(function(d, i) { return i / data.length * entry_duration; })
+        .attr("r", 4)
+      .each("end", function(d, i) {
+         if (i === data.length - 1) {
+           add_label(this, d);
+         }
+      });
+
+    g.selectAll("circle")
+      .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+            .attr("r", 8);
+      })
+      .on("mouseout", function(d){
+        d3.select(this)
+          .transition()
+            .attr("r", 4);
+      });
+
+    // mouseover labels
+    g.selectAll("circle")
+      .on("mouseover.tooltip", function(d) {
+        d3.select(".late_percent").remove();
+        d3.select("#chart")
+          .append("text")
+            .text(d.late_percent + "%")
+            .style("text-anchor", "middle")
+            .attr("x", time_scale(d.time) + 10)
+            .attr("y", percent_scale(d.late_percent) - 30)
+            .attr("class", "late_percent " + d.line_id);
+      });
+
+    g.selectAll("circle")
+      .on("mouseout.tooltip", function(d) {
+        d3.select(".late_percent")
+          .transition().duration(500)
+            .style("opacity", 0)
+            .attr("transform", "translate(0, -30)")
+          .remove();
+      });
   }
 
-  // interactive transitions
+  function add_label(circle, d) {
+
+    d3.select(circle)
+        .attr("r", 12)
+      .append("text")
+        .text(d.line_id.split("_")[1])
+        .attr("x", time_scale(d.time))
+        .attr("y", percent_scale(d.late_percent))
+        .attr("dy", "0.35em")
+        .style("text-anchor", "middle")
+        .attr("class", "linelabel")
+        .style("fill", "black")
+
+        //.style("opacity", 0)
+
+
+  }
 
 }

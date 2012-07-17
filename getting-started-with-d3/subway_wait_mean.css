@@ -36,5 +36,15 @@ path {
 }
 
 .timeseries {
-   stroke-width: 3;
+  stroke-width: 3;
+}
+
+.late_percent {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+text {
+  font-family: sans-serif;
+  font-size: 80%;
 }
