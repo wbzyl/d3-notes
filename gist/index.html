@@ -9,8 +9,8 @@ svg {
 }
 </style>
 
-<script src="http://mbostock.github.com/d3/d3.js?2.9.6"></script>
-<script src="https://raw.github.com/d3/d3-plugins/master/cie/cie.js"></script>
+<!--<script src="http://mbostock.github.com/d3/d3.js?2.9.6"></script>-->
+<script src="d3.v2.min.js"></script>
 <script src="glow.js"></script>
 
 <body>
@@ -27,8 +27,8 @@ var svg = d3.select("body")
 svg.append("text")
     .attr("x", 50)
     .attr("y", 100)
-    .attr("fill", "green")
     .attr("font-size", "48px")
     .text("Spring Flower")
+    .style("fill", "#f00")
     .style("filter", "url(#glow)");
 </script>
