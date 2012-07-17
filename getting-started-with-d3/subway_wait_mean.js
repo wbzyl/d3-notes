@@ -127,10 +127,17 @@ function draw(data) {
           .transition()
             .attr("r", 8);
       })
-      .on("mouseout", function(d){
+      .on("mouseout", function(d) {
         d3.select(this)
           .transition()
             .attr("r", 4);
+      });
+
+    g.selectAll("circle")
+      .on("mouseout", function(d, i) {
+         if (i !== data.length - 1) {
+           d3.select(this).transition().attr("r", 4);
+         }
       });
 
     // mouseover labels
@@ -148,19 +155,15 @@ function draw(data) {
 
     g.selectAll("circle")
       .on("mouseout.tooltip", function(d) {
+        // console.log("mouseout:", this);
         d3.select(".late_percent")
-          .transition().duration(500)
+            .attr("opacity", 1)
+          .transition().duration(250)
             .attr("opacity", 0)
-            .attr("transform", "translate(0, -30)")
+            .attr("transform", "translate(0, -60)")
           .remove();
       });
 
-    g.selectAll("circle")
-      .on("mouseout", function(d, i){
-         if (i !== data.length - 1) {
-           d3.select(this).transition().attr("r", 4);
-         }
-      });
   }
 
   function add_label(circle, d) {
