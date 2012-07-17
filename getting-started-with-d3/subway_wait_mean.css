@@ -28,3 +28,13 @@ path {
 #timeseries {
    float: left;
 }
+
+/* missing rules */
+
+.key_line {
+  cursor: pointer;
+}
+
+.timeseries {
+   stroke-width: 3;
+}
