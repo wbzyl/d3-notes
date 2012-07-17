@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Glow</title>
+
+<style>
+svg {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+</style>
+
+<script src="http://mbostock.github.com/d3/d3.js?2.9.6"></script>
+<script src="https://raw.github.com/d3/d3-plugins/master/cie/cie.js"></script>
+<script src="glow.js"></script>
+
+<body>
+
+<script>
+var myGlow = glow();
+
+var svg = d3.select("body")
+  .append("svg")
+    .attr("width", 800)
+    .attr("height", 200)
+  .call(myGlow);
+
+svg.append("text")
+    .attr("x", 50)
+    .attr("y", 100)
+    .attr("fill", "green")
+    .attr("font-size", "48px")
+    .text("Spring Flower")
+    .style("filter", "url(#glow)");
+</script>
