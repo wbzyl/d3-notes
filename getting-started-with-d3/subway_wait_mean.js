@@ -154,12 +154,19 @@ function draw(data) {
             .attr("transform", "translate(0, -30)")
           .remove();
       });
+
+    g.selectAll("circle")
+      .on("mouseout", function(d, i){
+         if (i !== data.length - 1) {
+           d3.select(this).transition().attr("r", 4);
+         }
+      });
   }
 
   function add_label(circle, d) {
 
     d3.select(circle)
-        .attr("r", 12)
+        .attr("r", 8)
       .append("text")
         .text(d.line_id.split("_")[1])
         .attr("x", time_scale(d.time))
