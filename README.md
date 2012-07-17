@@ -20,11 +20,17 @@ Użyteczne:
 * [Wiki](https://github.com/mbostock/d3/wiki)
 * [Google group](https://groups.google.com/group/d3-js)
 * [W3C SVG](http://www.w3.org/TR/SVG/)
-* [Mozilla Developer Network SVG](https://developer.mozilla.org/en/SVG)
 * [W3C SVG Primer](http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 * [SVG Tutorial](http://www.w3schools.com/svg/default.asp)
 * [Learn SVG](http://www.learnsvg.com/)
   - [Basics](http://www.learnsvg.com/tutorials/tutorialBasics/)
+
+
+## SVG
+
+* [Mozilla Developer Network SVG](https://developer.mozilla.org/en/SVG)
+  - [SVG Attribute reference](https://developer.mozilla.org/en/SVG/Attribute)
+  - [SVG element reference](https://developer.mozilla.org/en/SVG/Element)
 
 
 ## D3

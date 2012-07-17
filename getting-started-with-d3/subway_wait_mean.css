@@ -48,3 +48,10 @@ text {
   font-family: sans-serif;
   font-size: 80%;
 }
+
+.linelabel {
+  font-size: 12px;
+  fill: white;
+  stroke: white;
+  stroke-width: 1;
+}

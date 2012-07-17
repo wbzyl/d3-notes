@@ -22,7 +22,7 @@ function draw(data) {
 
   var time_scale = d3.time.scale()
     .range([0, chart_dimensions.width])
-    .domain([new Date(2008, 11, 1), new Date(2011, 6, 1)]);
+    .domain([new Date(2008, 11, 1), new Date(2011, 4, 1)]);
 
   var percent_scale = d3.scale.linear()
     .range([chart_dimensions.height, 0])
@@ -140,7 +140,7 @@ function draw(data) {
         d3.select("#chart")
           .append("text")
             .text(d.late_percent + "%")
-            .style("text-anchor", "middle")
+            .attr("text-anchor", "middle")
             .attr("x", time_scale(d.time) + 10)
             .attr("y", percent_scale(d.late_percent) - 30)
             .attr("class", "late_percent " + d.line_id);
@@ -150,7 +150,7 @@ function draw(data) {
       .on("mouseout.tooltip", function(d) {
         d3.select(".late_percent")
           .transition().duration(500)
-            .style("opacity", 0)
+            .attr("opacity", 0)
             .attr("transform", "translate(0, -30)")
           .remove();
       });
@@ -164,21 +164,19 @@ function draw(data) {
   }
 
   function add_label(circle, d) {
+    d3.select(circle).attr("r", 8);
 
-    d3.select(circle)
-        .attr("r", 8)
-      .append("text")
-        .text(d.line_id.split("_")[1])
-        .attr("x", time_scale(d.time))
-        .attr("y", percent_scale(d.late_percent))
-        .attr("dy", "0.35em")
-        .style("text-anchor", "middle")
-        .attr("class", "linelabel")
-        .style("fill", "black")
-
-        //.style("opacity", 0)
-
-
+    d3.select('#' + d.line_id + "_path")
+      .append('text')
+        .text(d.line_id.split('_')[1])
+        .attr('text-anchor', 'middle')
+        .attr("dominant-baseline", "central")
+        .attr('x', time_scale(d.time))
+        .attr('y', percent_scale(d.late_percent))
+        .attr('class', 'linelabel')
+        .attr('opacity', 0)
+      .transition()
+        .attr('opacity', 1);
   }
 
 }
