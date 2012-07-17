@@ -25,6 +25,9 @@ Użyteczne:
 * [Learn SVG](http://www.learnsvg.com/)
   - [Basics](http://www.learnsvg.com/tutorials/tutorialBasics/)
 
+Użyteczne:
+
+* [Epoch Converter Functions](http://www.epochconverter.com/programming/)
 
 ## SVG
 
