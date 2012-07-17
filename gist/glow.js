@@ -1,34 +1,31 @@
-function glow() {
-  var width = 64, // default width
-      height = 64; // default height
+function glow(url) {
+  var stdDeviation = 2,
+      rgb = "#000",
+      colorMatrix = "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0";
 
-  var stdDev = 2,
-      colorMatrix = "0 0 0 1  0  0 0 0 0  0  0 0 0 0  0  0 0 0 1  0";
+  if (!arguments.length) {
+    url = "glow";
+  }
 
   function my() {
 
     var defs = this.append("defs");
 
     var filter = defs.append("filter")
-        .attr("id", "glow")
+        .attr("id", url)
+        .attr("x", "-20%")
+        .attr("y", "-20%")
+        .attr("width", "140%")
+        .attr("height", "140%")
       .call(function() {
         this.append("feColorMatrix")
             .attr("type", "matrix")
             .attr("values", colorMatrix);
         this.append("feGaussianBlur")
              // .attr("in", "SourceGraphics")
-             .attr("stdDeviation", stdDev)
+            .attr("stdDeviation", stdDeviation)
             .attr("result", "coloredBlur");
       });
-
-    // filter.append("feColorMatrix")
-    //     .attr("type", "matrix")
-    //     .attr("values", colorMatrix);
-
-    // filter.append("feGaussianBlur")
-    //      // .attr("in", "SourceGraphics")
-    //     .attr("stdDeviation", stdDev)
-    //     .attr("result", "coloredBlur");
 
     filter.append("feMerge")
       .call(function() {
@@ -37,18 +34,24 @@ function glow() {
         this.append("feMergeNode")
             .attr("in", "SourceGraphic");
       });
-
   }
 
-  my.width = function(value) {
-    if (!arguments.length) return width;
-    width = value;
+  my.rgb = function(value) {
+    if (!arguments.length) return color;
+    rgb = value;
+    color = d3.rgb(value);
+    var matrix = "0 0 0 red 0 0 0 0 0 green 0 0 0 0 blue 0 0 0 1 0";
+    colorMatrix = matrix
+      .replace("red", color.r)
+      .replace("green", color.g)
+      .replace("blue", color.b);
+
     return my;
   };
 
-  my.height = function(value) {
-    if (!arguments.length) return height;
-    height = value;
+  my.stdDeviation = function(value) {
+    if (!arguments.length) return stdDeviation;
+    stdDeviation = value;
     return my;
   };
 
