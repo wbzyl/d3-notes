@@ -3,8 +3,8 @@
 function draw(data) {
   "use strict";
 
-  var container_dimensions = {width: 900, height: 400},
-    margins = {top: 10, right: 20, bottom: 30, left: 60},
+  var container_dimensions = {width: 1000, height: 400},
+    margins = {top: 20, right: 20, bottom: 30, left: 60},
     chart_dimensions = {
       width: container_dimensions.width - margins.left - margins.right,
       height: container_dimensions.height - margins.top - margins.bottom
